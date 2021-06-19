@@ -1,0 +1,28 @@
+<h1>Taller 10 : (Laboratorio) </h1>
+
+<h3>Número de Parroquias {{ numero_parroquias }}</h3>
+
+<ul>
+ {% for p in parroquias %}
+
+  <li>
+    {{p}} - [<a href="{% url 'editar_parroquia' p.id %}">editar</a>] -
+      <ul>
+        {% for b in p.barrio.all %}
+          <li>
+            <span>{{b.nombre}} - [<a href="{% url 'editar_barrio' b.id %}">editar</a>] </span>
+          </li>
+        {% endfor %} 
+      </ul>
+      [<a href="{% url 'crear_barrio_parroquia' p.id%}">+Barrio</a>]
+    </li>
+  <hr />
+
+{% endfor %} 
+</ul>
+
+<br />
+[<a href="{% url 'crear_parroquia' %}">Agregar Parroquia</a>]
+[<a href="{% url 'listadoParroquias' %}">Listado de Parroquia con sus Barrios</a>]
+[<a href="{% url 'listadoBarrios' %}">Listado de Barrios</a>]
+

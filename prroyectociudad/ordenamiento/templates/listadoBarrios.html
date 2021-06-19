@@ -1,0 +1,13 @@
+<h2>Listado de Barrios</h2> 
+<h3>Número de barrios {{ numero_barrios }} </h3>
+
+<ul>
+{% for b in barrios %}
+    <li>
+        {{b.nombre}}<br/>
+    </li>
+{% endfor %}
+</ul>
+</br>
+
+[<a href="{% url 'index' %}">inicio</a>]
